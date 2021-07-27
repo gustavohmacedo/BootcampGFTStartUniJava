@@ -1,47 +1,29 @@
 package SolucionandoDesafiosEmJava;
 
-public class ContagemRepetidaDeNumeros {
-    public static void main(String[] args) {
-        
-    }
-
-    
-}
-/*
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
-public class minhaClasse {
+public class ContagemRepetidaDeNumeros {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		sc.useLocale(Locale.ENGLISH);
-		Locale.setDefault(new Locale("en", "US"));
-		
-//declare as variaveis corretamente e continue a sua solução
+		Scanner entrada = new Scanner(System.in);
+		int quantidadeDeValores = entrada.nextInt();
+		Map<Integer, Integer> conjuntoDeNumeros = new HashMap<>();
 
-		ArrayList<Integer>  = new ArrayList<Integer>();
-		
-		int    =sc.nextInt();
-		while(    -->0)
-			variavel.add(sc.nextInt());
-		
-		SortedMap<Integer, Integer> variavel = new TreeMap<>();
-		lista.forEach(id -> variavel.compute(id, (   , ) -> (    == null ? 1 :  + 1)));
-		
-	
-		contaQuant.entrySet().forEach(entry->{
-			System.out.printf("%d aparece %d vez(es)\n", entry.getKey(), entry.getValue());  
-		});
-		
-		sc.close();
+		for (int contador = 0; contador < quantidadeDeValores; contador++) {
+			int valor = entrada.nextInt();
+
+			if (conjuntoDeNumeros.containsKey(valor)) {
+				Integer quantidade = conjuntoDeNumeros.get(valor);
+				conjuntoDeNumeros.put(valor, ++quantidade);
+			} else {
+				conjuntoDeNumeros.put(valor, 1);
+			}
+		}
+		conjuntoDeNumeros.entrySet().stream().sorted(Map.Entry.comparingByKey())
+				.forEach(e -> System.out.println(e.getKey() + " aparece " + e.getValue() + " vez(es)"));
+
+		entrada.close();
 	}
 }
-*/
